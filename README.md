@@ -1,8 +1,9 @@
 # dotfiles-sway-laptop
 
-## Favourite software:
+## Favourite software
 - Obsidian
 - Faugus Launcher
+- tailscale
 - The prior included softwares within my dotfiles:
 	- foot
 	- mako
@@ -12,8 +13,10 @@
 	- wofi
 	- yazi
 - mpv
+- pipewire
 - btop
 - Xournal++
+- wl-copy / wl-paste
 - Libreoffice
 - Firefox
 - Chemtool

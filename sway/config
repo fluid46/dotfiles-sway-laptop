@@ -15,7 +15,7 @@ exec_always keepassxc /home/dan/Passwords/1Passwords.kdbx
 set $mod Mod4
 set $term foot
 set $EDITOR micro
-set $browser firefox
+set $browser env MOZ_ENABLE_WAYLAND=1 firefox
 
 bindsym $mod+r exec foot -e ~/.config/sway/scripts/radio.sh
 bindsym $mod+s exec foot -e spt
