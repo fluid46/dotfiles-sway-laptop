@@ -1,1 +1,119 @@
-/home/dan/.config/sway/config
+focus_follows_mouse always
+
+# Screenshot
+
+bindsym Control+Shift+p exec grim -g "$(slurp)" -  | tee "$HOME/Pictures/screenshots"/"screenshot_$(date +%Y%m%d-%H%M%S).png" | wl-copy
+
+### Autostart ###
+exec_always autotiling
+exec_always syncthing --no-browser
+exec_always spotifyd --no-daemon
+exec_always wlsunset -l 54.0 -L -1
+exec_always keepassxc /home/dan/Passwords/1Passwords.kdbx
+
+### Variables ###
+set $mod Mod4
+set $term foot
+set $EDITOR micro
+set $browser firefox
+
+bindsym $mod+r exec foot -e ~/.config/sway/scripts/radio.sh
+bindsym $mod+s exec foot -e spt
+bindsym $mod+k exec foot -e mutt -F ~/.mutt/work/muttrc
+bindsym $mod+l exec foot -e mutt -F ~/.mutt/personal/muttrc
+
+
+exec cliphist wipe; wl-paste --watch cliphist store & 
+
+
+workspace_layout default
+
+output "eDP-1" scale 1
+
+### Keybindings ###
+
+# Launch applications
+bindsym $mod+t exec $term
+bindsym $mod+d exec foot -e yazi
+bindsym $mod+b exec $browser
+bindcode --release --no-repeat 133 exec pkill wofi || wofi --show drun 
+# Kill focused window
+bindsym $mod+q kill
+
+# Reload configuration
+bindsym $mod+Shift+c reload
+
+
+# Window behavior
+floating_modifier $mod normal
+default_floating_border none
+default_border pixel 1
+hide_edge_borders --i3 smart_no_gaps
+
+# Keyboard Backlight 
+bindsym XF86KbdBrightnessUp exec brightnessctl --device='smc::kbd_backlight' set +10%
+bindsym XF86KbdBrightnessDown exec brightnessctl --device='smc::kbd_backlight' set 10%-
+
+### Workspaces ###
+
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+### Layout Controls ###
+
+# Fullscreen toggle
+bindsym $mod+up fullscreen
+
+# Floating toggle
+bindsym $mod+f floating toggle
+
+# Switch between tiling and floating
+bindsym $mod+space focus mode_toggle
+
+### Hardware Keys ###
+
+# Volume
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Brightness
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+### Bar ###
+bar {
+    swaybar_command waybar
+}
+
+### Input ###
+input "type:touchpad" {
+    dwt enabled
+    dwtp enabled
+    tap enabled
+    tap_button_map lrm
+    natural_scroll enabled
+    accel_profile "flat"
+}

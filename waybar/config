@@ -1,1 +1,122 @@
-/home/dan/.config/waybar/config
+{
+  "position": "top",
+  "modules-left": ["sway/workspaces", "cpu", "memory", "battery"],
+  "modules-center": ["sway/window"],
+  "modules-right": ["pulseaudio#input", "pulseaudio#output", "backlight", "network", "tray", "clock"],
+
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "unknown-tag": "N/A",
+    "interval": 2,
+    "consume-icons": {
+      "on": " ",
+    },
+    "random-icons": {
+      "off": "<span color=\"#f53c3c\"></span> ",
+      "on": " ",
+    },
+    "repeat-icons": {
+      "on": " ",
+    },
+    "single-icons": {
+      "on": "1 ",
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": "",
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)",
+  },
+
+  "tray": {
+    "spacing": 10,
+    "tooltip": false,
+  },
+
+  "clock": {
+    "format": "{:%H:%M }",
+    "format-alt": "{:%a %Y-%m-%d}",
+    "tooltip": false,
+  },
+
+  "cpu": {
+    "format": "CPU: {usage}%",
+    "tooltip": false,
+    "interval": 1,
+  },
+
+  "memory": {
+    "format": "RAM: {used}GB",
+    "interval": 1,
+    "tooltip": false,
+  },
+
+  "temperature": {
+    "critical-threshold": 70,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""],
+    "tooltip": false,
+  },
+
+  "backlight": {
+    "format": " {percent}%",
+    "tooltip": false,
+    "min-brightness": 1.0
+  },
+
+  "battery": {
+    "states": {
+      "best": 100,
+      "excellent": 85,
+      "good": 70,
+      "moderate": 50,
+      "low": 30,
+      "critical": 10,
+    },
+    "format": "BAT0: {capacity}%",
+    "format-charging": "Charging: {capacity}%",
+    "format-plugged": "{capacity}%",
+    "format-alt": "{time}",
+    "tooltip": false,
+    "interval": 1,
+  },
+
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "tooltip": false,
+  },
+
+  "pulseaudio#output": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth-muted": "󰟎",
+    "format-muted": " ",
+  	"format-icons": {
+	    "headphone": "",
+        "default": ["", "", ""],
+    },
+    "on-click" : "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up" : "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ -l 1",
+    "on-scroll-down" : "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+    "tooltip": false,
+  },
+  "pulseaudio#input": {
+    "format": "{format_source}",
+    "format-source": "",
+  	"format-source-muted": "",
+    "on-click" : "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "tooltip": false,
+  },
+  "custom/dailynote": {
+  	"on-click" : "/bin/bash /home/dan/.config/scripts/dailynote.sh > /dev/null 2>&1 &",
+  	"on-click-right": "/bin/bash /home/dan/.config/scripts/dailynote-render.sh",
+  	"format": "Note",
+    "tooltip": false,
+  },
+}

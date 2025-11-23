@@ -1,1 +1,60 @@
-/home/dan/.config/wofi/style.css
+@define-color base           #000000 ;
+@define-color selected       #FFFFFF ;
+@define-color border 	     #757575 ;
+@define-color base_alt       #282f3e ;
+@define-color primary        #b6c0cd ;
+
+* {
+    font-family: "Roboto Mono Nerd Font Mono";
+    font-size: 12px;
+    font-weight: 400;
+}
+
+#window {
+    background-color: @base;
+    color: @primary;
+    border: 0px solid @border;
+}
+
+#outer-box {
+    padding: 20px;
+}
+
+#input {
+    background-color: @base;
+    border: 1px solid @selected;
+    padding: 8px 12px;
+    border-radius: 0px;
+    color: @selected;
+}
+
+#scroll {
+    margin-top: 20px;
+}
+
+#img {
+	
+}
+
+#text {
+    color: @primary;
+}
+
+#text:selected {
+    color: @base;
+}
+
+#entry {
+    border-radius: 0px;
+    color: @selected;
+}
+
+#entry:selected {
+    background-color: @selected;
+    color: @base;
+}
+
+#input,
+#entry:selected {
+}
+

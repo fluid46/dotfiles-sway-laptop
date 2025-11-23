@@ -1,1 +1,2 @@
-/home/dan/.config/yazi/yazi.toml
+[mgr]
+show_hidden = true

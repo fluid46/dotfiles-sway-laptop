@@ -1,1 +1,9 @@
-/home/dan/.config/micro/settings.json
+{
+	"mkparents": true,
+	"colorscheme": "color",
+	"autosu": true,
+	"tabtospaces": true,
+	"softwrap": false,
+	"wordwrap": false,
+	"clipboard": "external"
+}

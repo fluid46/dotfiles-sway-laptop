@@ -1,1 +1,138 @@
-/home/dan/.config/waybar/style.css
+/* Global Style Reset */
+* {
+  border: none;
+  border-radius: 0;
+  font-family: Roboto Mono Nerd Font;
+  font-size: 12px;
+  min-height: 0;
+}
+
+/* Waybar Window */
+window#waybar {
+  background-color: rgba(0, 0, 0, 1);
+  color: #ffffff;
+}
+
+/* Workspaces */
+#workspaces {
+  margin: 0 5px;
+}
+
+#workspaces button {
+  color: #ffffff;
+}
+
+#workspaces button.active {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+#workspaces button:hover {
+  color: #000000;
+}
+
+#workspaces button.focused {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+/* Workspace Button Margin Tweaks */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+/* Shared Module Styling */
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+  padding: 0 5px;
+  margin: 0 5px;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Clock */
+#clock {
+  color: #ffffff;
+}
+
+/* Battery */
+#battery.best,
+#battery.charging {
+  background-color: #4cbb17;
+  color: #000000;
+}
+
+#battery.excellent:not(.charging) {
+  background-color: #4caf50;
+  color: #000000;
+}
+
+#battery.good:not(.charging) {
+  background-color: #8bc34a;
+  color: #000000;
+}
+
+#battery.moderate:not(.charging) {
+  background-color: #ffeb3b;
+  color: #000000;
+}
+
+#battery.low:not(.charging) {
+  background-color: #ff9800;
+  color: #000000;
+}
+
+#battery.critical:not(.charging) {
+  background-color: #f44336;
+  color: #000000;
+}
+
+/* CPU, Memory, Backlight */
+#cpu,
+#memory,
+#backlight {
+  color: #ffffff;
+}
+
+/* Network */
+#network {
+  color: #ffffff;
+}
+
+#network.disconnected {
+  background-color: #f53c3c;
+}
+
+/* Audio */
+#pulseaudio {
+  color: #ffffff;
+}
+
+/* Tray */
+#tray {
+  background-color: #000000;
+}
+
+/* Focused Labels */
+label:focus {
+  background-color: #000000;
+}

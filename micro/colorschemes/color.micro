@@ -1,0 +1,33 @@
+color-link default "#F8F8F2"                // unchanged (near-white)
+color-link comment "#6e7681"                // from bright0 – soft gray
+color-link identifier "#58a6ff"             // from regular4 – soft blue
+color-link constant "#bc8cff"               // from regular5 – soft purple
+color-link constant.string "#d29922"        // from regular3 – yellow-gold
+color-link constant.string.char "#3fb950"   // from regular2 – soft green
+color-link statement "#ff7b72"              // from regular1 – soft rose
+color-link symbol.operator "#ff7b72"        // matches statement
+color-link preproc "#d29922"                // matches string
+color-link type "#58a6ff"                   // matches identifier
+color-link special "#3fb950"                // matches constant.string.char
+color-link underlined "#ffa198"             // from bright1 – lighter rose
+color-link error "bold #d29922"             // matches preproc
+color-link todo "bold #ffa198"              // matches underlined
+color-link hlsearch "#282828"               // unchanged (grayscale)
+color-link statusline "#58a6ff"             // matches identifier
+color-link tabbar "#58a6ff"                 // matches statusline
+color-link indent-char "#505050"            // unchanged (grayscale)
+color-link line-number "#b1bac4"            // from regular7 – light gray
+color-link current-line-number "#ffffff"    // from bright7 – white
+color-link diff-added "#3fb950"             // matches constant.string.char
+color-link diff-modified "#e3b341"          // from bright3 – muted gold
+color-link diff-deleted "#ff7b72"           // from regular1 – soft red
+color-link gutter-error "#d29922"           // matches preproc
+color-link gutter-warning "#d29922"         // matches string/preproc
+#color-link cursor-line "#323232"          // unchanged (grayscale)
+color-link color-column "#323232"           // unchanged (grayscale)
+color-link type.extended "default"          // unchanged
+color-link symbol.brackets "default"        // unchanged
+color-link symbol.tag "#bc8cff"             // matches constant
+color-link match-brace "#282828"            // unchanged (grayscale)
+color-link tab-error "#ff7b72"              // matches statement
+color-link trailingws "#ff7b72"             // same as tab-error
